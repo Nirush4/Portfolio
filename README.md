@@ -1,4 +1,4 @@
-# nirushan-portfolio 🌐
+# My-portfolio 🌐
 
 ## Goal 🥅
 
@@ -68,5 +68,6 @@ This site is deployed and publicly available at:
 - LinkedIn
 - GitHub
 
-Author ✍🏽
+## Author 👨‍💻​
+
 • Nirushan Rajamanoharan (@Nirush4)
