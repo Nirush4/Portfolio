@@ -12,8 +12,10 @@
     "vite": "^6.3.5"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.8",
+
+    "@tailwindcss/vite": "^4.1.7",
     "motion": "^12.15.0",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.7"
+
   }
 }
