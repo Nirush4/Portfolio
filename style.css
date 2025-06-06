@@ -160,6 +160,8 @@ body {
 }
 
 .primary-btn {
+    display: flex;
+    align-items: center;
     background: linear-gradient(0deg, #f44e00, #fa7300);
     color: var(--text-color);
 }
@@ -608,15 +610,19 @@ body {
     background-color: var(--primary-color);
 }
 
+.img-group-container-mobile {
+    display: none;
+}
+
 .projects-container {
-    padding-top: 3%;
+    padding-top: 6%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
-    width: 90vw;
+    width: 90dvw;
     text-align: center;
     letter-spacing: 4rem;
     margin: 0 auto;
-    font-size: 9rem;
+    font-size: clamp(1.5rem, -0.20000000000000018rem + 8.5vw, 10rem);
     text-transform: uppercase;
     -webkit-text-stroke-width: 3px;
     color: transparent;
@@ -654,6 +660,7 @@ body {
     left: 0;
     right: 0;
     height: 5px;
+    width: 100%;
     background: #9911ff;
     bottom: 50px;
     transform: scaleX(0);
@@ -742,11 +749,15 @@ video {
 }
 
 .project-2 {
-    bottom: -12.2rem;
+    bottom: -16.9rem;
 }
 
 .project-3 {
-    bottom: -20.1rem
+    bottom: -16.9rem;
+}
+
+.project-4 {
+    bottom: -15.4rem;
 }
 
 .project-card:hover .project-1 {
@@ -754,11 +765,15 @@ video {
 }
 
 .project-card:hover .project-2 {
-    transform: translateY(-12.2rem);
+    transform: translateY(-16.9rem);
 }
 
 .project-card:hover .project-3 {
-    transform: translateY(-20.1rem);
+    transform: translateY(-16.9rem);
+}
+
+.project-card:hover .project-4 {
+    transform: translateY(-15.4rem);
 }
 
 .project-info h3 {
@@ -773,6 +788,7 @@ video {
     color: #000000;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    text-align: justify;
 }
 
 
@@ -785,21 +801,110 @@ video {
 
 .project-tags span {
     padding: 0.4rem 1rem;
-    background: rgba(244, 78, 0, 0.1);
-    color: var(--accent-color);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    border: 1px solid rgba(244, 78, 0, 0.2);
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-}
-
-.project-card:hover .project-tags span {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     background-color: #ffffff78;
     color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(244, 78, 0, 0.2);
 }
 
+/* imp! Contact Section */
+
+.contact {
+    padding: 100px 5%;
+    background: linear-gradient(0deg, #f44e00, #fa7300);
+}
+
+.contact h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #000000;
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.form-group label {
+    position: absolute;
+    left: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    top: 1rem;
+    color: #000000;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+}
+
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group textarea:focus+label,
+.form-group textarea:not(:placeholder-shown)+label {
+    top: -0.5rem;
+    font-size: 1rem;
+    color: #6a1c00;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* imp! Footer */
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem;
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+    }
+}
+
+
 /* imp! Responsive Design */
+
 
 @media (width<1260px) {
     .About-me-text {
@@ -840,6 +945,57 @@ video {
     }
 }
 
+@media (width<1080px) {
+
+    .projects-container {
+        padding-top: 11%;
+
+        .img-container {
+            height: 112dvh;
+        }
+    }
+
+    .project-card {
+        width: 43rem;
+        height: 27rem;
+
+
+        .project-1 {
+            bottom: -18.5rem;
+        }
+
+        .project-2 {
+            bottom: -20.5rem;
+        }
+
+        .project-3 {
+            bottom: -22.1rem;
+        }
+
+        .project-4 {
+            bottom: -20.6rem;
+        }
+
+    }
+
+    .project-card:hover .project-1 {
+        transform: translateY(-18.5rem);
+    }
+
+    .project-card:hover .project-2 {
+        transform: translateY(-20.5rem);
+    }
+
+    .project-card:hover .project-3 {
+        transform: translateY(-22.1rem);
+    }
+
+    .project-card:hover .project-4 {
+        transform: translateY(-20.6rem);
+    }
+}
+
+
 @media (width<999px) {
 
     .about {
@@ -870,6 +1026,17 @@ video {
                 max-height: 30rem;
             }
 
+        }
+    }
+
+
+    .projects-container {
+        padding-top: 11%;
+        font-size: 3rem;
+        letter-spacing: 1rem;
+
+        .img-container {
+            height: 112dvh;
         }
     }
 }
@@ -936,6 +1103,10 @@ video {
         flex-direction: column;
         text-align: center;
         padding-top: 12rem;
+    }
+
+    .hero-image {
+        padding-bottom: 6rem;
     }
 
     .hero-content {
@@ -1008,12 +1179,95 @@ video {
     .about h2 {
         font-size: 3rem;
     }
+
+    .img-group-container {
+        display: none;
+    }
+
+    .projects-container {
+        font-size: 1.8rem;
+        letter-spacing: initial;
+        -webkit-text-stroke-width: initial;
+        color: var(--text-color);
+        -webkit-text-stroke-color: initial;
+    }
+
+    .img-group-container-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-radius: 15px;
+        padding: 6% 5% 14%;
+
+        .img-container-mobile {
+            width: auto;
+
+            .project-card-mobile {
+                border-radius: 15px;
+                overflow: hidden;
+            }
+        }
+
+        .project-info-mobile {
+            padding: 1.5rem 5%;
+            background: linear-gradient(0deg, #f44e00, #fa7300);
+            color: #000000;
+            text-align: center;
+
+            .project-link {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.2rem;
+                font-weight: 500;
+                padding-bottom: 1rem;
+            }
+
+            p {
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.9rem;
+                padding-bottom: 1rem;
+            }
+
+            .project-tags-mobile {
+                display: flex;
+                justify-content: center;
+
+            }
+
+            .technologies-used {
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .project-links-mobile {
+                display: flex;
+                justify-content: center;
+            }
+
+            .project-link:nth-child(3) {
+                padding-left: 1.5rem;
+            }
+        }
+    }
+
+    .contact h2 {
+        font-size: 1.8rem;
+    }
 }
 
 @media (width<600px) {
 
     .hero {
         padding-top: 12rem;
+    }
+
+    .hero-image {
+        padding-bottom: 4rem;
     }
 
     .hero-content {
@@ -1115,7 +1369,7 @@ video {
         padding: 2rem 5%;
 
         h2 {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             justify-self: center;
         }
@@ -1147,6 +1401,28 @@ video {
             order: 1;
         }
     }
+
+    .contact {
+        padding: 2rem 5%;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .projects-container {
+        font-size: 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 1.1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 1.1rem;
+    }
+
 }
 
 /* imp! Custom Cursor */
