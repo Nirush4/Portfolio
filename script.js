@@ -1,5 +1,124 @@
 import { animate, scroll } from 'motion';
 
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// DOM selector utilities
+const select = (e) => document.querySelector(e);
+
+const stage = select('.stage');
+const tubeInner = select('.tube__inner');
+const numLines = 10;
+const angle = 360 / numLines;
+
+let radius = 0;
+let origin = 0;
+
+// Get fontSize from CSS custom property
+function getFontSizeFromCSS() {
+  const rootStyles = getComputedStyle(document.documentElement);
+  const fontSizeValue = rootStyles.getPropertyValue('--fontSize');
+  return parseFloat(fontSizeValue); // should be unitless or in px
+}
+
+// Calculate 3D origin and radius
+function set3D() {
+  const width = window.innerWidth;
+  const fontSize = getFontSizeFromCSS();
+  const fontSizePx = (width / 100) * fontSize;
+
+  radius = fontSizePx / 2 / Math.sin((180 / numLines) * (Math.PI / 180));
+  origin = `50% 50% -${radius}px`;
+}
+
+// Clone the .line elements for 3D effect
+function cloneNodes() {
+  const clones = document.getElementsByClassName('line');
+
+  for (let i = 0; i < numLines - 1; i++) {
+    const newClone = clones[0].cloneNode(true);
+    newClone.classList.add(`line--${i + 2}`);
+    tubeInner.appendChild(newClone);
+  }
+
+  clones[0].classList.add('line--1');
+}
+
+// Position each line in a circular 3D rotation
+function positionTxt() {
+  gsap.set('.line', {
+    rotationX: (index) => -angle * index,
+    z: radius,
+    transformOrigin: origin,
+  });
+}
+
+// Adjust font weight, stretch, and opacity based on rotation
+function setProps(targets) {
+  targets.forEach((target) => {
+    const paramSet = gsap.quickSetter(target, 'css');
+    const degrees = gsap.getProperty(target, 'rotateX');
+    const radians = degrees * (Math.PI / 180);
+    const conversion = Math.abs(Math.cos(radians) / 2 + 0.5);
+    const fontW = 200 + 700 * conversion;
+    const fontS = `${100 + 700 * conversion}%`;
+
+    paramSet({
+      opacity: conversion + 0.1,
+      fontWeight: fontW,
+      fontStretch: fontS,
+    });
+  });
+}
+
+// Set up scroll-triggered rotation and style animation
+function scrollRotate() {
+  gsap.to('.line', {
+    scrollTrigger: {
+      trigger: '.stage',
+      scrub: 1,
+      start: 'top top',
+    },
+    rotateX: '+=60',
+    onUpdate() {
+      setProps(this.targets());
+    },
+  });
+
+  gsap.to('.tube', {
+    scrollTrigger: {
+      trigger: '.stage',
+      scrub: 1,
+      start: 'top top',
+    },
+    perspective: '1vw',
+    ease: 'expo.out',
+  });
+}
+
+// Main initializer
+function startAnimation() {
+  cloneNodes();
+  set3D();
+  positionTxt();
+  setProps(gsap.utils.toArray('.line'));
+  scrollRotate();
+
+  window.addEventListener('resize', () => {
+    set3D();
+    positionTxt();
+  });
+
+  gsap.to(stage, { autoAlpha: 1, duration: 2, delay: 2 });
+}
+
+// Start after page load
+window.onload = () => {
+  startAnimation();
+};
+
 function handleEyeMovement() {
   const pupilLeft = document.getElementById('pupil-left');
   const pupilRight = document.getElementById('pupil-right');
