@@ -2,10 +2,12 @@ import { animate, scroll } from 'motion';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
+
+gsap.registerPlugin(SplitText);
 
 gsap.registerPlugin(ScrollTrigger);
 
-// DOM selector utilities
 const select = (e) => document.querySelector(e);
 
 const stage = select('.stage');
@@ -16,14 +18,12 @@ const angle = 360 / numLines;
 let radius = 0;
 let origin = 0;
 
-// Get fontSize from CSS custom property
 function getFontSizeFromCSS() {
   const rootStyles = getComputedStyle(document.documentElement);
   const fontSizeValue = rootStyles.getPropertyValue('--fontSize');
-  return parseFloat(fontSizeValue); // should be unitless or in px
+  return parseFloat(fontSizeValue);
 }
 
-// Calculate 3D origin and radius
 function set3D() {
   const width = window.innerWidth;
   const fontSize = getFontSizeFromCSS();
@@ -33,7 +33,6 @@ function set3D() {
   origin = `50% 50% -${radius}px`;
 }
 
-// Clone the .line elements for 3D effect
 function cloneNodes() {
   const clones = document.getElementsByClassName('line');
 
@@ -46,7 +45,6 @@ function cloneNodes() {
   clones[0].classList.add('line--1');
 }
 
-// Position each line in a circular 3D rotation
 function positionTxt() {
   gsap.set('.line', {
     rotationX: (index) => -angle * index,
@@ -55,7 +53,6 @@ function positionTxt() {
   });
 }
 
-// Adjust font weight, stretch, and opacity based on rotation
 function setProps(targets) {
   targets.forEach((target) => {
     const paramSet = gsap.quickSetter(target, 'css');
@@ -73,7 +70,6 @@ function setProps(targets) {
   });
 }
 
-// Set up scroll-triggered rotation and style animation
 function scrollRotate() {
   gsap.to('.line', {
     scrollTrigger: {
@@ -81,7 +77,7 @@ function scrollRotate() {
       scrub: 1,
       start: 'top top',
     },
-    rotateX: '+=60',
+    rotateX: '+=300',
     onUpdate() {
       setProps(this.targets());
     },
@@ -98,7 +94,6 @@ function scrollRotate() {
   });
 }
 
-// Main initializer
 function startAnimation() {
   cloneNodes();
   set3D();
@@ -114,10 +109,63 @@ function startAnimation() {
   gsap.to(stage, { autoAlpha: 1, duration: 2, delay: 2 });
 }
 
-// Start after page load
 window.onload = () => {
   startAnimation();
 };
+
+document.fonts.ready.then(() => {
+  gsap.registerPlugin(SplitText);
+
+  const tl = gsap.timeline({ repeat: 10 });
+
+  const split = SplitText.create('#compatibility', {
+    type: 'chars',
+  });
+
+  const rough = 'rough({ strength: 2, clamp: true })';
+
+  tl.set('#compatibility', { autoAlpha: 0.9 });
+
+  split.chars.forEach((char, i) => {
+    // Drop in rotation
+    tl.fromTo(
+      char,
+      {
+        transformOrigin: 'center -160px',
+        z: 0.1,
+        rotation: Math.random() < 0.5 ? 90 : -90,
+      },
+      {
+        rotation: 0,
+        ease: 'elastic.out',
+        duration: 2.4,
+      },
+      0.3 + i * 0.06
+    );
+
+    // Bounce down
+    tl.to(
+      char,
+      {
+        y: 75,
+        ease: 'bounce.out',
+        duration: 0.6,
+      },
+      3.4 + Math.random() * 0.6
+    );
+
+    // Fade away
+    tl.to(
+      char,
+      {
+        autoAlpha: 0,
+        ease: rough,
+        duration: 0.6,
+      },
+      4.5 + Math.random()
+    );
+  });
+});
 
 function handleEyeMovement() {
   const pupilLeft = document.getElementById('pupil-left');
