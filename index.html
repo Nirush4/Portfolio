@@ -14,7 +14,13 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css'
         integrity='sha512-GmZYQ9SKTnOea030Tbiat0Y+jhnYLIpsGAe6QTnToi8hI2nNbVMETHeK4wm4MuYMQdrc38x+sX77+kVD01eNsQ=='
         crossorigin='anonymous' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
     <script type="module" src="script.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+
+
 
 
 </head>
@@ -26,6 +32,7 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#honors">Honors & Awards</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -44,7 +51,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="animate-text">Hi, I'm <span class="highlight">Nirushan Rajamanoharan</span></h1>
-            <p class="animate-text delay-1">Front-End Developer and Graphic Designer</p>
+            <p class="animate-text delay-1 front-end-graphic"></p>
             <div class="hero-buttons animate-text delay-2">
                 <a href="#projects" class="btn primary-btn">View My Work</a>
                 <a href="#contact" class="btn secondary-btn">Contact Me</a>
@@ -77,10 +84,11 @@
     <section id="about" class="about">
         <h2 class="About-me-text">About Me</h2>
         <h2 class="about-text">About</h2>
-        <h3 class="me">Me</h3>
+        <h3 class="me" id="compatibility">Me</h3>
         <div class="about-content">
             <div class="about-text">
-                <p>Based in Oslo, I bridge the gap between design and development—crafting visually compelling,
+                <p>Based in Oslo, I bridge the gap between design and development—crafting visually
+                    compelling,
                     user-focused digital
                     experiences. With 8
                     years of experience as a graphic designer and a strong passion for design-driven development, I
@@ -145,56 +153,6 @@
 
                     <!-- imp! project-1 -->
 
-                    <a href="https://thecommunitysciencemuseum1.netlify.app/" target="_blank"
-                        aria-label="Visit Community Science Museum Project" title="Visit Project">
-                        <div class="img-container">
-                            <div class="project-card">
-                                <div class="project-image">
-                                    <video src="/image/projects/community-science-museum.mp4" autoplay muted playsinline
-                                        style="width: 100%; height: auto;" onended="this.play();">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                                <div class="project-info project-1">
-                                    <h3>The Community Science Museum</h3>
-                                    <p>For <strong>Semester Project-1</strong> I had to create a functional responsive
-                                        website for the
-                                        community
-                                        science museum. This
-                                        website is a vibrant, interactive science museum designed for kids, families,
-                                        and
-                                        educators. Its user-friendly layout
-                                        ensures that visitors of all ages can easily navigate and explore.</p>
-                                    <p>With a modern, colorful design, the site aims to captivate and engage younger
-                                        audiences
-                                        while also making educators feel
-                                        inspired and welcome. The visually appealing elements encourage curiosity and
-                                        excitement
-                                        about science.
-                                    </p>
-                                    <div class="project-tags">
-                                        <div class="technologies-used">
-                                            <span>HTML5</span>
-                                            <span>CSS3</span>
-                                            <span>JavaScript</span>
-                                            <span>Responsive</span>
-                                        </div>
-                                        <div class="project-links">
-                                            <a href="https://thecommunitysciencemuseum1.netlify.app/"
-                                                class="project-link" target="_blank"><i
-                                                    class="fas fa-external-link-alt"></i></a>
-                                            <a href="https://github.com/Nirush4/Semesterproject-1" class="project-link"
-                                                target="_blank"><i class="fab fa-github"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- imp! project-2 -->
-
                     <a href="https://rainydays-webshop-no.netlify.app/" target="_blank"
                         aria-label="Visit Rainy days Project" title="Visit Project">
                         <div class="img-container">
@@ -239,7 +197,51 @@
                             </div>
                         </div>
                     </a>
+                    <!-- imp! project-2 -->
 
+                    <a href="https://lensofwanderlust.netlify.app/" target="_blank"
+                        aria-label="Visit Lens of Wanderlust Project" title="Visit Project">
+                        <div class="img-container">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <video src="/image/projects/lens-of-wanderlust.mp4" autoplay muted playsinline
+                                        style="width: 100%; height: auto;" onended="this.play();">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="project-info project-4">
+                                    <h3>Lens of Wanderlust 📸</h3>
+                                    <p><strong>Project Exam - 1</strong> aims to apply and enhance the skills acquired
+                                        throughout the Front-End Development - 1 program by
+                                        creating a fully functional and responsive web application. The project involves
+                                        interpreting a brief, planning an
+                                        effective solution, designing an intuitive user interface, and building the
+                                        application using HTML, CSS, vanilla
+                                        JavaScript, REST API integration, and project management best practices. The
+                                        focus is on delivering a polished, tested,
+                                        and user-friendly experience that demonstrates the ability to design, develop,
+                                        and optimize a modern, responsive website
+                                        while interacting with external data sources via RESTful APIs.
+                                    </p>
+                                    <div class="project-tags">
+                                        <div class="technologies-used">
+                                            <span>HTML5</span>
+                                            <span>CSS3</span>
+                                            <span>JavaScript</span>
+                                            <span>Responsive</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://lensofwanderlust.netlify.app/" class="project-link"
+                                                target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                            <a href="https://github.com/Nirush4/FED1-exam-Nirush" class="project-link"
+                                                target="_blank"><i class="fab fa-github"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
                     <!-- imp! project-3 -->
 
                     <a href="https://squarepumpkin.netlify.app/" target="_blank"
@@ -290,29 +292,32 @@
 
                     <!-- imp! project-4 -->
 
-                    <a href="https://lensofwanderlust.netlify.app/" target="_blank"
-                        aria-label="Visit Lens of Wanderlust Project" title="Visit Project">
+                    <a href="https://thecommunitysciencemuseum1.netlify.app/" target="_blank"
+                        aria-label="Visit Community Science Museum Project" title="Visit Project">
                         <div class="img-container">
                             <div class="project-card">
                                 <div class="project-image">
-                                    <video src="/image/projects/lens-of-wanderlust.mp4" autoplay muted playsinline
+                                    <video src="/image/projects/community-science-museum.mp4" autoplay muted playsinline
                                         style="width: 100%; height: auto;" onended="this.play();">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-                                <div class="project-info project-4">
-                                    <h3>Lens of Wanderlust 📸</h3>
-                                    <p><strong>Project Exam - 1</strong> aims to apply and enhance the skills acquired
-                                        throughout the Front-End Development - 1 program by
-                                        creating a fully functional and responsive web application. The project involves
-                                        interpreting a brief, planning an
-                                        effective solution, designing an intuitive user interface, and building the
-                                        application using HTML, CSS, vanilla
-                                        JavaScript, REST API integration, and project management best practices. The
-                                        focus is on delivering a polished, tested,
-                                        and user-friendly experience that demonstrates the ability to design, develop,
-                                        and optimize a modern, responsive website
-                                        while interacting with external data sources via RESTful APIs.
+                                <div class="project-info project-1">
+                                    <h3>The Community Science Museum</h3>
+                                    <p>For <strong>Semester Project-1</strong> I had to create a functional responsive
+                                        website for the
+                                        community
+                                        science museum. This
+                                        website is a vibrant, interactive science museum designed for kids, families,
+                                        and
+                                        educators. Its user-friendly layout
+                                        ensures that visitors of all ages can easily navigate and explore.</p>
+                                    <p>With a modern, colorful design, the site aims to captivate and engage younger
+                                        audiences
+                                        while also making educators feel
+                                        inspired and welcome. The visually appealing elements encourage curiosity and
+                                        excitement
+                                        about science.
                                     </p>
                                     <div class="project-tags">
                                         <div class="technologies-used">
@@ -322,9 +327,10 @@
                                             <span>Responsive</span>
                                         </div>
                                         <div class="project-links">
-                                            <a href="https://lensofwanderlust.netlify.app/" class="project-link"
-                                                target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                                            <a href="https://github.com/Nirush4/FED1-exam-Nirush" class="project-link"
+                                            <a href="https://thecommunitysciencemuseum1.netlify.app/"
+                                                class="project-link" target="_blank"><i
+                                                    class="fas fa-external-link-alt"></i></a>
+                                            <a href="https://github.com/Nirush4/Semesterproject-1" class="project-link"
                                                 target="_blank"><i class="fab fa-github"></i></a>
                                         </div>
                                     </div>
@@ -341,52 +347,9 @@
         <div class="img-group-container-mobile">
 
             <!-- imp! Project-1-Mobile -->
-
-            <a href="https://thecommunitysciencemuseum1.netlify.app/" target="_blank"
-                aria-label="Visit Community Science Museum Project" title="Visit Project">
-                <div class="img-container-mobile">
-                    <div class="project-card-mobile">
-                        <div class="project-image-mobile">
-                            <video src="/image/projects/community-science-museum.mp4" autoplay muted playsinline
-                                style="width: 100%; height: auto;" onended="this.play();">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="project-info-mobile">
-                            <h3><strong>The Community Science Museum</strong></h3>
-                            <p>For <strong>Semester Project-1</strong> I had to create a functional responsive website
-                                for the
-                                community
-                                science museum. This
-                                website is a vibrant, interactive science museum designed for kids, families,
-                                and
-                                educators. Its user-friendly layout
-                                ensures that visitors of all ages can easily navigate and explore.</p>
-                            <div class="project-tags project-tags-mobile">
-                                <div class="technologies-used">
-                                    <span>HTML5</span>
-                                    <span>CSS3</span>
-                                    <span>JavaScript</span>
-                                    <span>Responsive</span>
-                                </div>
-                                <div class="project-links-mobile">
-                                    <a href="https://thecommunitysciencemuseum1.netlify.app/" class="project-link"
-                                        target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="https://github.com/Nirush4/Semesterproject-1" class="project-link"
-                                        target="_blank"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </a>
-
-            <!-- imp! Project-2-Mobile -->
-
             <a href="https://rainydays-webshop-no.netlify.app/" target="_blank" aria-label="Visit Rainy days Project"
                 title="Visit Project">
-                <div class="img-container-mobile">
+                <div class="img-container-mobile fade-in-left">
                     <div class="project-card-mobile">
                         <div class="project-image-mobile">
                             <video src="/image/projects/ranydays.mp4" autoplay muted playsinline
@@ -428,11 +391,56 @@
                 </div>
             </a>
 
+            <!-- imp! Project-2-Mobile -->
+            <a href="https://lensofwanderlust.netlify.app/" target="_blank"
+                aria-label="Visit Lens of Wanderlust Project" title="Visit Project">
+                <div class="img-container-mobile fade-in-right">
+                    <div class="project-card-mobile">
+                        <div class="project-image-mobile">
+                            <video src="/image/projects/lens-of-wanderlust.mp4" autoplay muted playsinline
+                                style="width: 100%; height: auto;" onended="this.play();">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="project-info-mobile">
+                            <h3><strong>Lens of Wanderlust</strong></h3>
+                            <p><strong>Project Exam - 1</strong> aims to apply and enhance the skills acquired
+                                throughout the Front-End
+                                Development - 1 program by
+                                creating a fully functional and responsive web application. The project involves
+                                interpreting a brief, planning an
+                                effective solution, designing an intuitive user interface, and building the application
+                                using HTML, CSS, vanilla
+                                JavaScript, REST API integration, and project management best practices. The focus is on
+                                delivering a polished, tested,
+                                and user-friendly experience that demonstrates the ability to design, develop, and
+                                optimize a modern, responsive website
+                                while interacting with external data sources via RESTful APIs.</p>
+                            <div class="project-tags project-tags-mobile">
+                                <div class="technologies-used">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Responsive</span>
+                                </div>
+                                <div class="project-links-mobile">
+                                    <a href="https://lensofwanderlust.netlify.app/" class="project-link"
+                                        target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/Nirush4/FED1-exam-Nirush" class="project-link"
+                                        target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+
             <!-- imp! Project-3-Mobile -->
 
             <a href="https://squarepumpkin.netlify.app/" target="_blank" aria-label="Visit Square Pumpkin Project"
                 title="Visit Project">
-                <div class="img-container-mobile">
+                <div class="img-container-mobile fade-in-left">
                     <div class="project-card-mobile">
                         <div class="project-image-mobile">
                             <video src="/image/projects/square-pumpkin.mp4" autoplay muted playsinline
@@ -476,30 +484,26 @@
 
             <!-- imp! Project-4-Mobile -->
 
-            <a href="https://lensofwanderlust.netlify.app/" target="_blank"
-                aria-label="Visit Lens of Wanderlust Project" title="Visit Project">
-                <div class="img-container-mobile">
+            <a href="https://thecommunitysciencemuseum1.netlify.app/" target="_blank"
+                aria-label="Visit Community Science Museum Project" title="Visit Project">
+                <div class="img-container-mobile fade-in-right">
                     <div class="project-card-mobile">
                         <div class="project-image-mobile">
-                            <video src="/image/projects/lens-of-wanderlust.mp4" autoplay muted playsinline
+                            <video src="/image/projects/community-science-museum.mp4" autoplay muted playsinline
                                 style="width: 100%; height: auto;" onended="this.play();">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <div class="project-info-mobile">
-                            <h3><strong>Lens of Wanderlust</strong></h3>
-                            <p><strong>Project Exam - 1</strong> aims to apply and enhance the skills acquired
-                                throughout the Front-End
-                                Development - 1 program by
-                                creating a fully functional and responsive web application. The project involves
-                                interpreting a brief, planning an
-                                effective solution, designing an intuitive user interface, and building the application
-                                using HTML, CSS, vanilla
-                                JavaScript, REST API integration, and project management best practices. The focus is on
-                                delivering a polished, tested,
-                                and user-friendly experience that demonstrates the ability to design, develop, and
-                                optimize a modern, responsive website
-                                while interacting with external data sources via RESTful APIs.</p>
+                            <h3><strong>The Community Science Museum</strong></h3>
+                            <p>For <strong>Semester Project-1</strong> I had to create a functional responsive website
+                                for the
+                                community
+                                science museum. This
+                                website is a vibrant, interactive science museum designed for kids, families,
+                                and
+                                educators. Its user-friendly layout
+                                ensures that visitors of all ages can easily navigate and explore.</p>
                             <div class="project-tags project-tags-mobile">
                                 <div class="technologies-used">
                                     <span>HTML5</span>
@@ -508,9 +512,9 @@
                                     <span>Responsive</span>
                                 </div>
                                 <div class="project-links-mobile">
-                                    <a href="https://lensofwanderlust.netlify.app/" class="project-link"
+                                    <a href="https://thecommunitysciencemuseum1.netlify.app/" class="project-link"
                                         target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="https://github.com/Nirush4/FED1-exam-Nirush" class="project-link"
+                                    <a href="https://github.com/Nirush4/Semesterproject-1" class="project-link"
                                         target="_blank"><i class="fab fa-github"></i></a>
                                 </div>
                             </div>
@@ -523,7 +527,60 @@
         </div>
     </section>
 
+
     <div class="progress"></div>
+
+
+    <!-- imp! Honors & Awards Section -->
+
+    <section id="honors" class="honors">
+
+        <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg" class="honors-awards-desktop">
+            <text x="40" y="35" class="heavy">Honors</text>
+            <text x="55" y="55" class="small">&</text>
+            <text x="65" y="55" class="Rrrrr">Awards!</text>
+        </svg>
+
+
+        <h2 class="honors-awards-mobile">Honors & Awards</h2>
+        <div class="honors-content">
+            <div class="honors-grid">
+                <div class="honor-card" id="honor-card">
+                    <div class="honors-img-div swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/image/awards/IMG_0892 2.jpg" alt="Image 1" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/image/awards/IMG_0896 2.jpg" alt="Image 2" />
+                            </div>
+                        </div>
+
+                        <!-- Add navigation if you want -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="content-div">
+                        <div class="honor-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="honor-info">
+                            <h3>Best Student Work in Front-End Development at Golden Egg 2025! 🏆</h3>
+                            <a href="https://www.noroff.no/" target="_blank" class="honor-organization">Noroff</a>
+                            <p class="honor-description">This recognition is deeply meaningful to me. I've been working
+                                toward this since the very first day of my studies, and it's
+                                incredibly rewarding to see that dedication and hard work pay off. Receiving the Best
+                                Student Work in Front-End
+                                Development award at Golden Egg 2025 is a milestone that motivates me to keep growing
+                                and aiming higher.</p>
+                            <span class="honor-date">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- imp! Contact Section -->
 
