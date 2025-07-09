@@ -56,6 +56,12 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+
+    li {
+        text-align: center;
+        flex-shrink: 1;
+        min-width: 0;
+    }
 }
 
 .nav-links a {
@@ -910,6 +916,185 @@ video {
     border: 1px solid rgba(244, 78, 0, 0.2);
 }
 
+/* imp! Honors & Awards Section */
+
+.honors {
+    padding: 100px 5%;
+    background-color: var(--primary-color);
+    transform-style: preserve-3d;
+}
+
+.honors-awards-mobile {
+    display: none;
+}
+
+.honor-card {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.honor-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.small {
+    font: italic 13px sans-serif;
+    fill: #7fff00;
+}
+
+.heavy {
+    font: bold 28px sans-serif;
+    fill: var(--text-color);
+}
+
+.Rrrrr {
+    font: italic 38px serif;
+    fill: var(--accent-color);
+}
+
+.honors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.honors h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.honors-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.honor-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 70dvw;
+    max-height: 38rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    gap: 4rem;
+    flex: 1 1 100%;
+
+    .honors-img-div {
+        display: flex;
+        flex: 1 1 40%;
+        height: 100%;
+        width: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+
+    .content-div {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 60%;
+    }
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    color: var(--accent-color);
+    font-weight: 900;
+}
+
+.honor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(244, 78, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.honor-card:hover::before {
+    left: 100%;
+}
+
+.honor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px 1px rgba(244, 78, 0, 0.7);
+    border-color: var(--accent-color);
+}
+
+.honor-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, var(--accent-color), #ff7a3d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.honor-icon i {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.honor-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.honor-organization {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.honor-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: justify;
+}
+
+.honor-date {
+    display: inline-block;
+    background: rgba(244, 77, 0, 0.356);
+    color: var(--accent-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(244, 78, 0, 0.3);
+}
+
 /* imp! Contact Section */
 
 .contact {
@@ -1049,6 +1234,20 @@ footer {
         padding-top: 0 !important;
         font-weight: 400;
     }
+
+    .honors-awards-mobile {
+        display: flex;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.5rem;
+    }
+
+    .honors {
+        padding-top: 0;
+    }
+
+    .honors-awards-desktop {
+        display: none;
+    }
 }
 
 @media (width<1080px) {
@@ -1098,6 +1297,11 @@ footer {
 
     .project-card:hover .project-4 {
         transform: translateY(-20.6rem);
+    }
+
+    .honors h2 {
+        font-size: 2.2rem;
+        padding-bottom: 2rem;
     }
 }
 
@@ -1151,6 +1355,12 @@ footer {
     }
 }
 
+@media (min-width: 768px) and (max-width: 840px) {
+    .nav-links {
+        gap: 1.3rem;
+    }
+}
+
 @media (width<768px) {
     .nav-links {
         position: absolute;
@@ -1162,7 +1372,7 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 5rem;
-        padding: 1rem 0;
+        padding: 3rem 0;
         transform: translateY(-100%);
         opacity: 0;
         pointer-events: none;
@@ -1335,6 +1545,13 @@ footer {
     .contact h2 {
         font-size: 1.8rem;
     }
+
+    .honor-card {
+        flex-direction: column;
+        max-height: 70rem;
+        width: 59dvw;
+    }
+
 }
 
 @media (width<600px) {
@@ -1502,6 +1719,25 @@ footer {
         font-size: 1.1rem;
     }
 
+    .honors h2 {
+        font-size: 1.5rem;
+        padding-bottom: 0;
+    }
+
+    .honor-card {
+        flex-direction: column;
+        max-height: 70rem;
+        width: 70dvw;
+    }
+
+    .honor-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .honor-info h3 {
+        font-size: 1.1rem;
+    }
 }
 
 /* imp! Custom Cursor */

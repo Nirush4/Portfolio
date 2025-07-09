@@ -14,7 +14,13 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css'
         integrity='sha512-GmZYQ9SKTnOea030Tbiat0Y+jhnYLIpsGAe6QTnToi8hI2nNbVMETHeK4wm4MuYMQdrc38x+sX77+kVD01eNsQ=='
         crossorigin='anonymous' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
     <script type="module" src="script.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+
+
 
 
 </head>
@@ -26,6 +32,7 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#honors">Honors & Awards</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -44,7 +51,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="animate-text">Hi, I'm <span class="highlight">Nirushan Rajamanoharan</span></h1>
-            <p class="animate-text delay-1">Front-End Developer and Graphic Designer</p>
+            <p class="animate-text delay-1 front-end-graphic"></p>
             <div class="hero-buttons animate-text delay-2">
                 <a href="#projects" class="btn primary-btn">View My Work</a>
                 <a href="#contact" class="btn secondary-btn">Contact Me</a>
@@ -522,6 +529,58 @@
 
 
     <div class="progress"></div>
+
+
+    <!-- imp! Honors & Awards Section -->
+
+    <section id="honors" class="honors">
+
+        <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg" class="honors-awards-desktop">
+            <text x="40" y="35" class="heavy">Honors</text>
+            <text x="55" y="55" class="small">&</text>
+            <text x="65" y="55" class="Rrrrr">Awards!</text>
+        </svg>
+
+
+        <h2 class="honors-awards-mobile">Honors & Awards</h2>
+        <div class="honors-content">
+            <div class="honors-grid">
+                <div class="honor-card" id="honor-card">
+                    <div class="honors-img-div swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/image/awards/IMG_0892 2.jpg" alt="Image 1" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/image/awards/IMG_0896 2.jpg" alt="Image 2" />
+                            </div>
+                        </div>
+
+                        <!-- Add navigation if you want -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="content-div">
+                        <div class="honor-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="honor-info">
+                            <h3>Best Student Work in Front-End Development at Golden Egg 2025! 🏆</h3>
+                            <a href="https://www.noroff.no/" target="_blank" class="honor-organization">Noroff</a>
+                            <p class="honor-description">This recognition is deeply meaningful to me. I've been working
+                                toward this since the very first day of my studies, and it's
+                                incredibly rewarding to see that dedication and hard work pay off. Receiving the Best
+                                Student Work in Front-End
+                                Development award at Golden Egg 2025 is a milestone that motivates me to keep growing
+                                and aiming higher.</p>
+                            <span class="honor-date">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- imp! Contact Section -->
 

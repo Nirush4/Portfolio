@@ -8,6 +8,29 @@ gsap.registerPlugin(SplitText);
 
 gsap.registerPlugin(ScrollTrigger);
 
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(TextPlugin);
+
+function animateText() {
+  document.querySelector('.front-end-graphic').textContent = '';
+
+  gsap.to('.front-end-graphic', {
+    duration: 3,
+    text: 'Front-End Developer and Graphic Designer',
+    ease: 'power1.inOut',
+  });
+}
+
+ScrollTrigger.create({
+  trigger: '#home',
+  start: 'top 80%',
+  toggleActions: 'play reset play reset', // play on enter, reset on leave
+  onEnter: () => {
+    animateText();
+  },
+});
+
 const select = (e) => document.querySelector(e);
 
 const stage = select('.stage');
@@ -116,7 +139,13 @@ window.onload = () => {
 document.fonts.ready.then(() => {
   gsap.registerPlugin(SplitText);
 
-  const tl = gsap.timeline({ repeat: 10 });
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top center',
+      toggleActions: 'play reset play reset', // play on enter, reset on leave
+    },
+  });
 
   const split = SplitText.create('#compatibility', {
     type: 'chars',
@@ -127,7 +156,6 @@ document.fonts.ready.then(() => {
   tl.set('#compatibility', { autoAlpha: 0.9 });
 
   split.chars.forEach((char, i) => {
-    // Drop in rotation
     tl.fromTo(
       char,
       {
@@ -143,7 +171,6 @@ document.fonts.ready.then(() => {
       0.3 + i * 0.06
     );
 
-    // Bounce down
     tl.to(
       char,
       {
@@ -154,11 +181,10 @@ document.fonts.ready.then(() => {
       3.4 + Math.random() * 0.6
     );
 
-    // Fade away
     tl.to(
       char,
       {
-        autoAlpha: 0,
+        autoAlpha: 1,
         ease: rough,
         duration: 0.6,
       },
@@ -215,6 +241,44 @@ function initScrollAnimations() {
 
   scroll(animate('.progress', { scaleX: [0, 1] }), { target: groupContainer });
 }
+
+let words = gsap.utils.toArray('svg text'),
+  timePerCharacter = 0.1;
+
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#honors',
+    start: 'top 80%',
+    toggleActions: 'play reset play reset', // play on enter, reset on leave
+  },
+});
+
+words.forEach((el) => {
+  tl.from(el, {
+    text: '',
+    duration: el.textContent.length * timePerCharacter,
+    ease: 'none',
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.honor-card');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+});
 
 function setupNavLinks() {
   const links = document.querySelectorAll('.nav-links a');
@@ -312,6 +376,21 @@ function toggleProgressOnScroll() {
   window.addEventListener('scroll', handleScroll);
   handleScroll();
 }
+
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
+
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
 
 function init() {
   handleEyeMovement();
