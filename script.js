@@ -10,6 +10,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 import { TextPlugin } from 'gsap/TextPlugin';
 
+window.addEventListener('load', () => {
+  const loader = document.querySelector('.code-loader');
+
+  // Disable scroll while loader is visible
+  document.body.style.overflow = 'hidden';
+
+  setTimeout(() => {
+    loader.classList.add('fade-out');
+
+    // Wait for fade-out to finish, then hide loader and enable scroll
+    setTimeout(() => {
+      loader.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }, 500); // Match CSS transition duration
+  }, 2000);
+});
+
 gsap.registerPlugin(TextPlugin);
 
 function animateText() {

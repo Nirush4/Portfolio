@@ -30,6 +30,51 @@ body {
     line-height: 1.6;
 }
 
+/* imp! LOADER */
+
+
+.code-loader {
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+    font-family: Consolas, monospace;
+    font-size: 10rem;
+    z-index: 1000;
+
+    /* Fade-out transition setup */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Class added by JS to trigger fade-out */
+.code-loader.fade-out {
+    opacity: 0;
+}
+
+
+.code-loader span {
+    display: inline-block;
+    animation: pulse_414 0.4s alternate infinite ease-in-out;
+}
+
+.code-loader span:nth-child(odd) {
+    animation-delay: 0.4s;
+}
+
+@keyframes pulse_414 {
+    to {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
 /* imp! Navigation */
 
 .navbar {
