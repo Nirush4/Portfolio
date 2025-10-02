@@ -911,6 +911,10 @@ video {
     bottom: -15.4rem;
 }
 
+.project-5 {
+    bottom: -9rem;
+}
+
 .project-card:hover .project-1 {
     transform: translateY(-16.9rem);
 }
@@ -926,6 +930,11 @@ video {
 .project-card:hover .project-4 {
     transform: translateY(-15.4rem);
 }
+
+.project-card:hover .project-5 {
+    transform: translateY(-9rem);
+}
+
 
 .project-info h3 {
     font-size: 1.6rem;
