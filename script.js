@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
   // Disable scroll while loader is visible
   document.body.style.overflow = 'hidden';
 
-  const myTimeoutID = setTimeout(() => {
+  setTimeout(() => {
     loader.classList.add('fade-out');
 
     // Wait for fade-out to finish, then hide loader and enable scroll
@@ -25,10 +25,6 @@ window.addEventListener('load', () => {
       document.body.style.overflow = 'auto';
     }, 500); // Match CSS transition duration
   }, 1000);
-
-  myTimeoutID();
-
-  clearTimeout(myTimeoutID);
 });
 
 gsap.registerPlugin(TextPlugin);
